@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+   <nav class="flex justify-between items-center bg-[#1d235b] text-stone-50 py-3 text-2xl relative">
+        <h1 class="">Logo</h1>
+        <div class="flex flex-row justify-center items-center gap-4 border-2 p-3 rounded-lg transition-all delay-100 ease-in-out" id="time" >
+            <span id="hour"></span>
+            <span >:</span>
+            <span id="minut"></span>
+            <span>:</span>
+            <span id="second"></span>
+        </div>
+
+        <div class="border-2 p-3 rounded-lg transition-all delay-100 ease-in-out cursor-pointer" id="itemadd" onclick="showoption()" >New Add</div>
+
+        <div class="absolute top-20 right-[22rem] flex flex-col border-2  text-sm text-black backdrop-blur-lg rounded-lg hidden border-2 border-rose-400 " id="additemlist">
+            <span  class="cursor-pointer m-4" id="additem" onclick="addbusname()">1. Add new item in the list</span>
+            <span  class="cursor-pointer mb-4 mx-4" id="seethelistitem" onclick="showlistitem()">2. See the item list </span>
+        </div>
+
+        <div class="absolute top-20 right-[15rem] flex flex-col justify-center items-center bg-[#362066] p-4 hidden " id="addbus1">
+            <label for="busname">Name of the Bus:</label>
+
+
+            <input type="text" name="" id="busname" placeholder="enter new bus name"  class="my-2 placeholder:p-2 text-black  px-2" >
+
+
+            <button class="bg-[#0f4a72] border-2 px-4 py-2 hover:bg-rose-800 rounded-lg border-red-300  hover:border-[#b313b0]"  id="addtoitemlist" onclick="addtoitem()">Add</button>
+
+
+            <!-- <label for="addimg">Add image of the Bus</label>
+            <input type="file" name="" id="addimg"> -->
+        </div>
+
+        <ol class=" absolute top-20 right-[25rem] flex flex-col justify-center text-black items-start hidden" id="showitemlist" >
+           <li>1. Maa Travels</li>
+           <li>2. Maa Barala Devi</li>
+        </ol>
+        <button class="absolute top-20 right-[20rem]   items-start bg-[#0f4a72] border-2 px-4 py-2 hover:bg-rose-800 rounded-lg border-red-300  hover:border-[#b313b0] hidden " id="button" onclick="showoptionagain()">ok</button>
+
+        <i class="fa-solid fa-user"></i>
+   </nav>
+   
+</body>
+<script src="./script.js"></script>
+</html>
