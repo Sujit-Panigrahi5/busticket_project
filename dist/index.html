@@ -7,9 +7,14 @@
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<body>
-   <nav class="flex justify-between items-center bg-[#1d235b] text-stone-50 py-3 text-2xl relative">
-        <h1 class="">Logo</h1>
+<body class="">
+   <nav class="flex justify-between items-center bg-[#1d235b] text-stone-50 py-3 text-2xl relative   ">
+     <!-- logo -->
+        <div class="h-12 ">
+            <img src="./assets/slidlogo.png" alt="" class="h-full w-full">
+        </div>
+
+        <!-- timer -->
         <div class="flex flex-row justify-center items-center gap-4 border-2 p-3 rounded-lg transition-all delay-100 ease-in-out" id="time" >
             <span id="hour"></span>
             <span >:</span>
@@ -20,7 +25,7 @@
 
         <div class="border-2 p-3 rounded-lg transition-all delay-100 ease-in-out cursor-pointer" id="itemadd" onclick="showoption()" >New Add</div>
 
-        <div class="absolute top-20 right-[22rem] flex flex-col border-2  text-sm text-black backdrop-blur-lg rounded-lg hidden border-2 border-rose-400 " id="additemlist">
+        <div class="absolute top-20 right-[36rem] flex flex-col border-2  text-sm text-black backdrop-blur-lg rounded-lg hidden border-2 border-rose-400 " id="additemlist">
             <span  class="cursor-pointer m-4" id="additem" onclick="addbusname()">1. Add new item in the list</span>
             <span  class="cursor-pointer mb-4 mx-4" id="seethelistitem" onclick="showlistitem()">2. See the item list </span>
         </div>
@@ -39,15 +44,74 @@
             <input type="file" name="" id="addimg"> -->
         </div>
 
-        <ol class=" absolute top-20 right-[25rem] flex flex-col justify-center text-black items-start hidden" id="showitemlist" >
+        <ol class=" absolute top-20 right-[36rem] flex flex-col justify-center text-black items-start hidden" id="showitemlist" >
            <li>1. Maa Travels</li>
            <li>2. Maa Barala Devi</li>
         </ol>
-        <button class="absolute top-20 right-[20rem]   items-start bg-[#0f4a72] border-2 px-4 py-2 hover:bg-rose-800 rounded-lg border-red-300  hover:border-[#b313b0] hidden " id="button" onclick="showoptionagain()">ok</button>
 
-        <i class="fa-solid fa-user"></i>
+
+        <button class="absolute top-20 right-[31rem] items-start bg-[#0f4a72] border-2 px-4 py-2 hover:bg-rose-800 rounded-lg border-red-300  hover:border-[#b313b0] hidden " id="button" onclick="showoptionagain()">ok</button>
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="text-4xl fill-slate-900 " onmouseover="hoverpint()"  onmouseout="hoverpint1()" onclick="change()" id="mode" height="1em" viewBox="0 0 384 512"><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
+
+        <h1 class="absolute top-20 right-[20rem] text-black hidden"  id="hover"> </h1>
+
+        <i class="fa-solid fa-user mr-14 cursor-pointer" id="profilelogo" onclick="showprofile()" ></i>
+
+        <div class="absolute top-20 right-[2rem] flex flex-col justify-around items-start text-[#95d6e6] bg-gradient-to-r from-slate-600 to-red-500 p-3 rounded-lg border-4 hidden" id="profilesection">
+            <span class="cursor-pointer hover:underline hidden" id="profile" onclick="profileinf()">profile</span>
+            <span class="cursor-pointer hover:underline " id="login" onclick="showloginfrom()">Login</span>
+            <span class="cursor-pointer hover:underline "  id="logout" onclick="signout()">Logout</span>
+        </div>
    </nav>
-   
+   <!-- login section -->
+   <section class="border-2 border-cyan-500 absolute top-72  left-[40%] bg-slate-500 p-5 rounded-lg hidden"  id="loginsection">
+        <div class=" flex flex-col  ">
+            <label for="username">Enter your name:</label>
+            <input type="text" name="" id="username" class="placeholder:pl-2 border-2 border-purple-500 w-80" placeholder="Enter your name">
+        </div>
+
+        <div class=" flex flex-col  ">
+            <label for="emailid">Enter your Email Id:</label>
+            <input type="email" name="" id="emailid" class="placeholder:pl-2 border-2 border-purple-500 w-80" placeholder="Enter your Email Id" >
+        </div>
+
+        <div class=" flex flex-col  ">
+            <label for="password">Enter your password:</label>
+            <input type="password" name="" id="password" class="placeholder:pl-2 border-2 border-purple-500 w-80" placeholder="Enter your password">
+        </div>
+
+        <button class="bg-fuchsia-500 rounded-lg p-2 text-purple-900 hover:bg-fuchsia-800 hover:text-purple-500 ml-[7.5rem] my-3" id="submit" onclick="showprofile1()">submit</button>
+
+   </section>
+
+   <div class="border-2 border-cyan-500 absolute top-72  left-[40%] bg-slate-500 p-5 rounded-lg hidden" id="profileinformation">
+        <div class="flex flex-col justify-center items-center">
+            <h1>Update profile Picture</h1>
+            <input type="file" name="" id="selectimg" onchange="addimg()">
+            <h3>Your profile picture </h3>
+            <img src="" alt="No Profile Picture" id="uploadimg" class="w-16 h-16 rounded-full">
+        </div>
+        <h1 id="userinfo"></h1>
+        <h1 id="emailinfo"></h1>
+
+        <div class="flex flex-col"> 
+            <label for="bio">Bio:</label>
+            <input type="text" name="" id="bio" placeholder="bio">
+        </div>
+
+        <div class="flex flex-col"> 
+            <label for="decreption">Decreption:</label>
+            <input type="text" name="" id="decreption" class="" placeholder="Write about you ">
+        </div>
+
+        <button class="bg-fuchsia-500 rounded-lg p-2 text-purple-900 hover:bg-fuchsia-800 hover:text-purple-500 ml-[7.5rem] my-3" id="save" onclick="addallinfo()">Save</button>
+
+
+   </div>
+
+
+ 
 </body>
 <script src="./script.js"></script>
 </html>

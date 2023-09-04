@@ -1,4 +1,5 @@
 
+const body=document.querySelector("body")
 const  time=document.getElementById("time")
 const additem=document.getElementById("itemadd")
 const additemlist=document.getElementById("additemlist")
@@ -9,6 +10,27 @@ const showitem=document.getElementById("showitemlist")
 const busname1=document.getElementById("busname")
 const okbuttom=document.getElementById("button")
 const seethelistitem=document.getElementById("seethelistitem")
+const mode=document.getElementById("mode")
+const hover=document.getElementById("hover")
+const profilesection=document.getElementById("profilesection")
+const profilelogo=document.getElementById("profilelogo")
+const profile=document.getElementById("profile")
+const login=document.getElementById("login")
+const logout=document.getElementById("logout")
+const loginsection=document.getElementById("loginsection")
+const submit=document.getElementById("submit")
+const username=document.getElementById("username")
+const emailid=document.getElementById("emailid")
+const password=document.getElementById("password")
+const selectimg=document.getElementById("selectimg")
+const uploadimg=document.getElementById("uploadimg")
+const bio=document.getElementById("bio")
+const decreption=document.getElementById("decreption")
+const profileinformation=document.getElementById("profileinformation")
+const userinfo=document.getElementById("userinfo")
+const emailinfo=document.getElementById("emailinfo")
+
+
 
 function timeS(){
     
@@ -53,6 +75,8 @@ function colorchange(){
     }
    time.style.borderColor=finalcolor;
    additem.style.borderColor=finalcolor;
+   profilesection.style.borderColor=finalcolor;
+   
    
 }
 
@@ -145,6 +169,114 @@ function showoptionagain(){
 }
 
 
+// mode part
+const hoverpint=()=>{     // arrow function
+    if(body.style.backgroundColor == "white"){
+        hover.textContent="dark mode"
+        hover.style.display="block"
+        hover.style.color="black"
+    } else{
+        hover.textContent="light mode"
+        hover.style.display="block"
+        hover.style.color="white"
 
+    }
+}
+
+const hoverpint1= ()=>{
+    hover.style.display="none"
+}
+
+function change(){
+    if(body.style.backgroundColor == "white"){
+        body.style.backgroundColor="#1f1f1f"
+        mode.style.fill="white"
+        body.style.color="black"
+    } else{
+        body.style.backgroundColor="white"
+        mode.style.fill="black"
+        body.style.color="white"
+    }
+}
+
+
+// profile section
+
+// function hovertoprofile(){
+//     if()
+// }
+function showprofile(){
+    if(profilesection.style.display == "none"){
+        profilesection.style.display="block"
+        profilesection.style.display="flex"
+    } else{
+        profilesection.style.display="none"
+    }
+}
+// if(localStorage.getItem("tochecklogin")){
+
+// }
+
+let tochecklogin=false;
+
+
+function showprofile1(){
+    localStorage.setItem("username",username.value)
+    localStorage.setItem("emailId",emailid.value)
+    localStorage.setItem("password",password.value)
+    profile.style.display="block"
+    login.style.display="none"
+    loginsection.style.display="none"
+    document.querySelector("nav").style.filter="blur(0px)"
+
+}
+
+function showloginfrom(){
+    loginsection.style.display="block"
+    document.querySelector("nav").style.filter="blur(10px)"
+    tochecklogin=true
+}
+
+function signout(){
+    if( !tochecklogin){
+        showloginfrom()
+
+    } else{
+        localStorage.removeItem("username")
+        localStorage.removeItem("emailId")
+        localStorage.removeItem("password")
+        profile.style.display="none"
+        login.style.display="block"
+    }
+    
+}
+
+function addimg(){
+    const img=new FileReader();
+    img.onload=function(e){
+        uploadimg.src=e.target.result
+    }
+    img.readAsDataURL(selectimg.files[0])
+}
+
+
+function addallinfo(){
+    localStorage.setItem("bio",bio.value)
+    localStorage.setItem("decreption",decreption.value)
+    profileinformation.style.display="none"
+    document.querySelector("nav").style.filter="blur(0px)"
+    
+}
+
+function profileinf(){
+    document.querySelector("nav").style.filter="blur(0px)"
+    userinfo.textContent=`User Name : ${localStorage.getItem("username")}`
+    emailinfo.textContent=`Email Id : ${localStorage.getItem("emailId")}`
+    bio.textContent=localStorage.getItem("bio")
+    decreption.textContent=localStorage.getItem("decreption")
+    profileinformation.style.display="block"
+    
+
+}
 
 
