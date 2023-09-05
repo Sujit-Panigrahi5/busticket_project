@@ -68,17 +68,17 @@
    <section class="border-2 border-cyan-500 absolute top-72  left-[40%] bg-slate-500 p-5 rounded-lg hidden"  id="loginsection">
         <div class=" flex flex-col  ">
             <label for="username">Enter your name:</label>
-            <input type="text" name="" id="username" class="placeholder:pl-2 border-2 border-purple-500 w-80" placeholder="Enter your name">
+            <input type="text" name="" id="username" class="placeholder:pl-2 border-2 text-black border-purple-500 w-80" placeholder="Enter your name">
         </div>
 
         <div class=" flex flex-col  ">
             <label for="emailid">Enter your Email Id:</label>
-            <input type="email" name="" id="emailid" class="placeholder:pl-2 border-2 border-purple-500 w-80" placeholder="Enter your Email Id" >
+            <input type="email" name="" id="emailid" class="placeholder:pl-2 text-black border-2 border-purple-500 w-80" placeholder="Enter your Email Id" >
         </div>
 
         <div class=" flex flex-col  ">
             <label for="password">Enter your password:</label>
-            <input type="password" name="" id="password" class="placeholder:pl-2 border-2 border-purple-500 w-80" placeholder="Enter your password">
+            <input type="password" name="" id="password" class="placeholder:pl-2 text-black border-2 border-purple-500 w-80" placeholder="Enter your password">
         </div>
 
         <button class="bg-fuchsia-500 rounded-lg p-2 text-purple-900 hover:bg-fuchsia-800 hover:text-purple-500 ml-[7.5rem] my-3" id="submit" onclick="showprofile1()">submit</button>
@@ -97,12 +97,12 @@
 
         <div class="flex flex-col"> 
             <label for="bio">Bio:</label>
-            <input type="text" name="" id="bio" placeholder="bio">
+            <input type="text" name="" id="bio" placeholder="bio" class="text-black">
         </div>
 
         <div class="flex flex-col"> 
             <label for="decreption">Decreption:</label>
-            <input type="text" name="" id="decreption" class="" placeholder="Write about you ">
+            <input type="text" name="" id="decreption" class="text-black" placeholder="Write about you ">
         </div>
 
         <button class="bg-fuchsia-500 rounded-lg p-2 text-purple-900 hover:bg-fuchsia-800 hover:text-purple-500 ml-[7.5rem] my-3" id="save" onclick="addallinfo()">Save</button>
@@ -110,7 +110,17 @@
 
    </div>
 
+   <div class="flex flex-row justify-center items-center py-3 " id="selectitem">
+        <span class="text-black hover:underline">Only photo</span>
+        <span class="mx-4 text-black hover:underline">photo with audio</span>
+        <span class="text-black hover:underline">photo with video</span>
+    </div>
 
+    <div>
+        <div class="flex flex-row justify-evenly items-center flex-wrap " id="songlist">
+           
+        </div>
+    </div>
  
 </body>
 <script src="./script.js"></script>

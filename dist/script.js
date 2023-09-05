@@ -29,6 +29,9 @@ const decreption=document.getElementById("decreption")
 const profileinformation=document.getElementById("profileinformation")
 const userinfo=document.getElementById("userinfo")
 const emailinfo=document.getElementById("emailinfo")
+const selectitem=document.getElementById("selectitem")
+const songlist=document.getElementById("songlist")
+const photos=document.getElementsByClassName("photos")
 
 
 
@@ -76,8 +79,8 @@ function colorchange(){
    time.style.borderColor=finalcolor;
    additem.style.borderColor=finalcolor;
    profilesection.style.borderColor=finalcolor;
-   
-   
+   selectitem.style.backgroundColor=finalcolor;
+   photos.style.borderColor=finalcolor;
 }
 
 function setcolor(){
@@ -247,6 +250,7 @@ function signout(){
         localStorage.removeItem("password")
         profile.style.display="none"
         login.style.display="block"
+        tochecklogin=false;
     }
     
 }
@@ -274,9 +278,57 @@ function profileinf(){
     emailinfo.textContent=`Email Id : ${localStorage.getItem("emailId")}`
     bio.textContent=localStorage.getItem("bio")
     decreption.textContent=localStorage.getItem("decreption")
-    profileinformation.style.display="block"
+    
+    if(profileinformation.style.display=="block"){
+        profileinformation.style.display="none"
+    } else{
+        profileinformation.style.display="block"
+    }
     
 
 }
+
+let photolist=[
+    "./assets/photo/Chaleya.jpg",
+    "./assets/photo/chandni.jpg",
+    "./assets/photo/Kaavaalaa.jpg",
+    "./assets/photo/KUDIYE NI TERI.jpg",
+    "./assets/photo/Malang-Sajna.jpg",
+    "./assets/photo/Not-Ramaiya-Vastavaiya.jpg",
+    "./assets/photo/calmdown.jpeg",
+    "./assets/photo/teravaste.jpg",
+    "./assets/photo/Mahiye-Jinna-Sohna.jpg",
+    "./assets/photo/diltopagalhe.jpg"
+]
+let index=0;
+function printphoto(){
+    let div=document.createElement("div")
+    div.className="photos"
+    div.style.width="15rem";
+    div.style.height="15rem"
+    div.style.margin="20px"    
+    div.style.border="2px solid "
+    div.style.boxShadow="10px 20px 30px #7e7b7b";
+    div.style.cursor = "pointer"
+
+    let img=document.createElement("img")
+    img.style.width="100%"
+    img.style.height="100%"
+    img.src=photolist[index];
+    div.appendChild(img)
+    songlist.append(div)
+    index++;
+    if(index==photolist.length){
+        clearInterval(set)
+    }
+}
+
+
+let set=setInterval(printphoto,200)
+
+
+
+
+
 
 
