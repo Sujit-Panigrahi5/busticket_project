@@ -6,6 +6,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        audio::-webkit-media-controls-play-button,
+         audio::-webkit-media-controls-panel {
+        background-color: #71ABFB;
+        color: #2aafc1;
+     }
+    </style>
 </head>
 <body class="">
    <nav class="flex justify-between items-center bg-[#1d235b] text-stone-50 py-3 text-2xl relative   ">
@@ -116,11 +124,31 @@
         <span class="text-black hover:underline">photo with video</span>
     </div>
 
-    <div>
-        <div class="flex flex-row justify-evenly items-center flex-wrap " id="songlist">
-           
+    <div class="mt-20">
+        <div class="flex flex-row justify-evenly items-center flex-wrap gap-8" id="songlist">
+
+
+            <div class="w-[15rem] h-[15rem] border-2 shadow-lg cursor-pointer flex flex-col justify-center items-center relative border-red-500" id="box0" 
+            onmouseover="show('music0','video0')" onmouseout="donnotshow('music0','video0')" onclick="showmusicandvideo('music0','video0')" >
+                <img src="./assets/photo/Chaleya.jpg" alt="" class="w-full h-full " >
+
+
+                <audio controls src="./assets/audio/diltopagalhe.mp" class="bg-slate-800 absolute " autoplay hidden id="audio0"></audio>
+                <!-- <video src="./assets/video/chaleya.mp4" controls></video> -->
+
+                <button class="absolute bottom-2 left-3 hidden bg-blue-600 " id="music0"  onclick="playmusic('audio0')">
+                    <svg xmlns="http://www.w3.org/2000/svg"  class="fill-green-600"  height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+                </button>
+
+                <button class="absolute bottom-2 right-3 rounded-full px-3 py-2 bg-red-600 bg-green-700 transition-all ease-in-out delay-150 hidden" id="video0">
+                    <svg xmlns="http://www.w3.org/2000/svg" class=""  height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+                </button>
+            </div>
         </div>
+           
     </div>
+    <audio src="./assets/audio/calmdown.mp3" id="sujijf"></audio>
+    
  
 </body>
 <script src="./script.js"></script>

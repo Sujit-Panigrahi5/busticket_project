@@ -32,6 +32,12 @@ const emailinfo=document.getElementById("emailinfo")
 const selectitem=document.getElementById("selectitem")
 const songlist=document.getElementById("songlist")
 const photos=document.getElementsByClassName("photos")
+const sujijf=document.getElementById("sujijf")
+// const  audio0=document.getElementById("audio0")
+// const music0=document.getElementById("music0")
+// const video0=document.getElementById("video0")
+
+
 
 
 
@@ -80,7 +86,9 @@ function colorchange(){
    additem.style.borderColor=finalcolor;
    profilesection.style.borderColor=finalcolor;
    selectitem.style.backgroundColor=finalcolor;
-   photos.style.borderColor=finalcolor;
+  
+//    audio0.style.fill=finalcolor;
+//    photos.style.borderColor=finalcolor;
 }
 
 function setcolor(){
@@ -288,47 +296,194 @@ function profileinf(){
 
 }
 
-let photolist=[
-    "./assets/photo/Chaleya.jpg",
-    "./assets/photo/chandni.jpg",
-    "./assets/photo/Kaavaalaa.jpg",
-    "./assets/photo/KUDIYE NI TERI.jpg",
-    "./assets/photo/Malang-Sajna.jpg",
-    "./assets/photo/Not-Ramaiya-Vastavaiya.jpg",
-    "./assets/photo/calmdown.jpeg",
-    "./assets/photo/teravaste.jpg",
-    "./assets/photo/Mahiye-Jinna-Sohna.jpg",
-    "./assets/photo/diltopagalhe.jpg"
-]
-let index=0;
-function printphoto(){
-    let div=document.createElement("div")
-    div.className="photos"
-    div.style.width="15rem";
-    div.style.height="15rem"
-    div.style.margin="20px"    
-    div.style.border="2px solid "
-    div.style.boxShadow="10px 20px 30px #7e7b7b";
-    div.style.cursor = "pointer"
+// let photolist=[
+//     "./assets/photo/Chaleya.jpg",
+//     "./assets/photo/chandni.jpg",
+//     "./assets/photo/Kaavaalaa.jpg",
+//     "./assets/photo/KUDIYE NI TERI.jpg",
+//     "./assets/photo/Malang-Sajna.jpg",
+//     "./assets/photo/Not-Ramaiya-Vastavaiya.jpg",
+//     "./assets/photo/calmdown.jpeg",
+//     "./assets/photo/teravaste.jpg",
+//     "./assets/photo/Mahiye-Jinna-Sohna.jpg",
+//     "./assets/photo/diltopagalhe.jpg"
+// ]
+// let index=0;
+// function printphoto(){
+//     let div=document.createElement("div")
+//     div.className="photos"
+//     div.style.width="15rem";
+//     div.style.height="15rem"
+//     div.style.margin="20px"    
+//     div.style.border="2px solid "
+//     div.style.boxShadow="10px 20px 30px #7e7b7b";
+//     div.style.cursor = "pointer"
 
-    let img=document.createElement("img")
-    img.style.width="100%"
-    img.style.height="100%"
-    img.src=photolist[index];
-    div.appendChild(img)
-    songlist.append(div)
-    index++;
-    if(index==photolist.length){
-        clearInterval(set)
+//     let img=document.createElement("img")
+//     img.style.width="100%"
+//     img.style.height="100%"
+//     img.src=photolist[index];
+//     div.appendChild(img)
+//     songlist.append(div)
+//     index++;
+//     if(index==photolist.length){
+//         clearInterval(set)
+//     }
+// }
+
+
+// let set=setInterval(printphoto,200)
+
+
+let songlistsall=[
+    {
+        photo:"./assets/photo/Chaleya.jpg",
+        audio:"./assets/audio/chaleya.mp3",
+        video:"./assets/video/chaleya.mp4"
+    },
+    {
+        photo:"./assets/photo/chandni.jpg",
+        audio:"./assets/audio/chandini.mp3",
+        video:"./assets/video/chadni.mp4"
+    },
+    {
+        photo:"./assets/photo/Kaavaalaa.jpg",
+        audio:"./assets/audio/kaavaalaa.mp3",
+        video:"./assets/video/kaalaavaa.mp4"
+    },
+    {
+        photo:"./assets/photo/KUDIYE NI TERI.jpg",
+        audio:"./assets/audio/kudiyeni .mp3",
+        video:"./assets/video/kudiyen_teri.mp4"
+    },
+    {
+        photo:"./assets/photo/Malang-Sajna.jpg",
+        audio:"./assets/audio/malang.mp3",
+        video:"./assets/video/malang.mp4"
+    },
+    {
+        photo:"./assets/photo/Not-Ramaiya-Vastavaiya.jpg",
+        audio:"./assets/audio/notrameya.mp3",
+        video:"./assets/video/not-ramaya-vastameya.mp4"
+    },
+    {
+        photo:"./assets/photo/calmdown.jpeg",
+        audio:"./assets/audio/calmdown.mp3",
+        video:"./assets/video/calmdown.mp4"
+    },
+    {
+        photo:"./assets/photo/teravaste.jpg",
+        audio:"./assets/audio/teribaste.mp3",
+        video:"./assets/video/terevaste.mp4"
+    },
+    {
+        photo:"./assets/photo/Mahiye-Jinna-Sohna.jpg",
+        audio:"./assets/audio/mahiya.mp3",
+        video:"./assets/video/maheya.mp4"
+    },
+    {
+        photo:"./assets/photo/diltopagalhe.jpg",
+        audio:"./assets/audio/diltopagalhe.mp3",
+        video:"./assets/video/diltopagalhe.mp4"
+    }
+   
+]
+
+// // let index=0;
+// function printphoto(){
+//     let index=0;
+//     while(index <songlistsall.length){
+        
+//         let div=document.createElement("div")
+//         // div.className="photos"
+//         div.style.width="15rem";
+//         div.style.height="15rem"
+//         div.style.margin="20px"    
+//         div.style.border="2px solid "
+//         div.style.boxShadow="10px 20px 30px #7e7b7b";
+//         div.style.cursor = "pointer"
+//         div.style.display="flex"
+
+//         //img
+//         let img=document.createElement("img")
+//         img.style.width="100%"
+//         img.style.height="100%"
+//         img.src=songlistsall[index].photo
+//         img.id=`audio${index}`
+//         console.log(img.id)
+        
+//         div.appendChild(img)
+//         // audio
+//         let audi=document.createElement("audio")
+//         audi.src=songlistsall[0].audio
+//         audi.controls=true
+//         audi.load()
+        
+//         // audio0.addEventListener("click",function(){
+//         //     audi.play()
+//         // })
+        
+//         div.appendChild(audi)
+
+//         songlist.append(div)
+
+        
+//         songlist.append(div)
+//         index++;
+//     }
+
+//     // if(index==photolist.length){
+//     //     clearInterval(set)
+//     // }
+// }
+// printphoto()
+
+// let set=setInterval(printphoto,200)
+// let audi=document.createElement("audio")
+// audi.src=songlistsall[0].audio
+// // audi.setAttribute("controls", "controls");
+// audi.controls=true
+// audi.load()
+// // audi.play()
+//   document.body.appendChild(audi);
+
+
+// let p1=music0;
+// if(p1.style.display="none"){
+//     p1.style.display="block"
+// }
+// p1.style.display="block"
+function showmusicandvideo(p1,p2){
+    const music0=document.getElementById(p1)
+    const video0=document.getElementById(p2)
+    if(music0.style.display=="none"){
+        music0.style.display="block"
+        video0.style.display="block"
+    } else{
+        music0.style.display="none"
+        video0.style.display="none"
     }
 }
+function donnotshow(p1,p2){
+    const music0=document.getElementById(p1)
+    const video0=document.getElementById(p2)
+    music0.style.display="none"
+        video0.style.display="none"
+}
 
+function show(p1,p2){
+    const music0=document.getElementById(p1)
+    const video0=document.getElementById(p2)
+    music0.style.display="block"
+        video0.style.display="block"
+}
 
-let set=setInterval(printphoto,200)
+function playmusic(idofaudio){
+    // let idofmusic=document.getElementById(idofaudio)
+    // idofmusic.playmusic();
 
-
-
-
-
-
-
+    let aud=document.createElement("audio")
+    aud.src=songlistsall[0].audio;
+    aud.controls=true;
+    aud.play()
+}
