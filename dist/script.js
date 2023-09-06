@@ -464,26 +464,56 @@ function showmusicandvideo(p1,p2){
         video0.style.display="none"
     }
 }
-function donnotshow(p1,p2){
+function donnotshow(p1,p2,p3){
     const music0=document.getElementById(p1)
     const video0=document.getElementById(p2)
+    const img0=document.getElementById(p3)
     music0.style.display="none"
-        video0.style.display="none"
+    video0.style.display="none"
+    img0.style.opacity="1"
+    video0.style.animation="movelefttoright 2s 1"
+    music0.style.animation="move 3s 1"
 }
 
-function show(p1,p2){
+function show(p1,p2,p3){
     const music0=document.getElementById(p1)
     const video0=document.getElementById(p2)
+    
     music0.style.display="block"
-        video0.style.display="block"
+    video0.style.display="block"
+    img0.style.opacity = "0.5"
+  
 }
 
-function playmusic(idofaudio){
-    // let idofmusic=document.getElementById(idofaudio)
-    // idofmusic.playmusic();
 
-    let aud=document.createElement("audio")
-    aud.src=songlistsall[0].audio;
-    aud.controls=true;
-    aud.play()
+let checkmusic=false;
+function playmusic(idofaudio){    
+     if(checkmusic == false){
+        
+        document.getElementById(`audio${idofaudio}`).play()
+        checkmusic=true;
+        
+    } else{
+        document.getElementById(`audio${idofaudio}`).pause()
+        checkmusic=false
+    }    
 }
+
+let checkvideo=false;
+function playmusic(idofvideo){    
+     if(checkvideo == false){
+        document.getElementById(`video${idofvideo}`).style.display="block"
+        document.getElementById(`video${idofvideo}`).play()
+        // document.getElementById(`video${idofvideo}`).style.display="block"
+        document.getElementById(`video${idofvideo}`).style.animation="movelefttoright 4s 1"
+        checkvideo=true;
+        
+    } else{
+        document.getElementById(`video${idofvideo}`).style.display="none"
+        document.getElementById(`video${idofvideo}`).pause()
+        checkvideo=false
+    }    
+}
+document.getElementById("box1").style.animation="movelefttoright 2s 1"
+
+
