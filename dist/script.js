@@ -33,11 +33,6 @@ const selectitem=document.getElementById("selectitem")
 const songlist=document.getElementById("songlist")
 const photos=document.getElementsByClassName("photos")
 const sujijf=document.getElementById("sujijf")
-// const  audio0=document.getElementById("audio0")
-// const music0=document.getElementById("music0")
-// const video0=document.getElementById("video0")
-
-
 
 
 
@@ -83,12 +78,10 @@ function colorchange(){
         finalcolor+= color[setcolor()]
     }
    time.style.borderColor=finalcolor;
-   additem.style.borderColor=finalcolor;
    profilesection.style.borderColor=finalcolor;
    selectitem.style.backgroundColor=finalcolor;
-  
-//    audio0.style.fill=finalcolor;
-//    photos.style.borderColor=finalcolor;
+  return finalcolor;
+
 }
 
 function setcolor(){
@@ -236,15 +229,27 @@ function showprofile1(){
     localStorage.setItem("emailId",emailid.value)
     localStorage.setItem("password",password.value)
     profile.style.display="block"
+    // profilesection.style.zIndex="50"
+    // selectitem.style.zIndex="10"
     login.style.display="none"
     loginsection.style.display="none"
-    document.querySelector("nav").style.filter="blur(0px)"
 
+    document.querySelector("nav").style.filter="blur(0px)"
+    profileinformation.style.filter="blur(0px)"
+    selectitem.style.filter="blur(0px)";
+    document.getElementById("main").style.filter="blur(0px)";
 }
 
 function showloginfrom(){
     loginsection.style.display="block"
+    loginsection.style.zIndex="50"
+
     document.querySelector("nav").style.filter="blur(10px)"
+   
+    profileinformation.style.filter="blur(10px)"
+    selectitem.style.filter="blur(10px)";
+    document.getElementById("main").style.filter="blur(10px)";
+
     tochecklogin=true
 }
 
@@ -277,11 +282,15 @@ function addallinfo(){
     localStorage.setItem("decreption",decreption.value)
     profileinformation.style.display="none"
     document.querySelector("nav").style.filter="blur(0px)"
-    
+    selectitem.style.filter="blur(0px)";
+    document.getElementById("main").style.filter="blur(0px)";
 }
 
 function profileinf(){
     document.querySelector("nav").style.filter="blur(0px)"
+    selectitem.style.filter="blur(10px)";
+    document.getElementById("main").style.filter="blur(10px)";
+    profileinformation.style.zIndex="40"
     userinfo.textContent=`User Name : ${localStorage.getItem("username")}`
     emailinfo.textContent=`Email Id : ${localStorage.getItem("emailId")}`
     bio.textContent=localStorage.getItem("bio")
@@ -295,45 +304,6 @@ function profileinf(){
     
 
 }
-
-// let photolist=[
-//     "./assets/photo/Chaleya.jpg",
-//     "./assets/photo/chandni.jpg",
-//     "./assets/photo/Kaavaalaa.jpg",
-//     "./assets/photo/KUDIYE NI TERI.jpg",
-//     "./assets/photo/Malang-Sajna.jpg",
-//     "./assets/photo/Not-Ramaiya-Vastavaiya.jpg",
-//     "./assets/photo/calmdown.jpeg",
-//     "./assets/photo/teravaste.jpg",
-//     "./assets/photo/Mahiye-Jinna-Sohna.jpg",
-//     "./assets/photo/diltopagalhe.jpg"
-// ]
-// let index=0;
-// function printphoto(){
-//     let div=document.createElement("div")
-//     div.className="photos"
-//     div.style.width="15rem";
-//     div.style.height="15rem"
-//     div.style.margin="20px"    
-//     div.style.border="2px solid "
-//     div.style.boxShadow="10px 20px 30px #7e7b7b";
-//     div.style.cursor = "pointer"
-
-//     let img=document.createElement("img")
-//     img.style.width="100%"
-//     img.style.height="100%"
-//     img.src=photolist[index];
-//     div.appendChild(img)
-//     songlist.append(div)
-//     index++;
-//     if(index==photolist.length){
-//         clearInterval(set)
-//     }
-// }
-
-
-// let set=setInterval(printphoto,200)
-
 
 let songlistsall=[
     {
@@ -389,70 +359,24 @@ let songlistsall=[
    
 ]
 
-// // let index=0;
-// function printphoto(){
-//     let index=0;
-//     while(index <songlistsall.length){
-        
-//         let div=document.createElement("div")
-//         // div.className="photos"
-//         div.style.width="15rem";
-//         div.style.height="15rem"
-//         div.style.margin="20px"    
-//         div.style.border="2px solid "
-//         div.style.boxShadow="10px 20px 30px #7e7b7b";
-//         div.style.cursor = "pointer"
-//         div.style.display="flex"
+let index=0;
+function printphoto(){
+   
+    document.getElementById(`img${index}`).src=songlistsall[index].photo;
+    document.getElementById(`audio${index}`).src=songlistsall[index].audio;
+    document.getElementById(`video${index}`).src=songlistsall[index].video;
+    document.getElementById(`box${index}`).style.animation="small 2s 1"
+    index++;
 
-//         //img
-//         let img=document.createElement("img")
-//         img.style.width="100%"
-//         img.style.height="100%"
-//         img.src=songlistsall[index].photo
-//         img.id=`audio${index}`
-//         console.log(img.id)
-        
-//         div.appendChild(img)
-//         // audio
-//         let audi=document.createElement("audio")
-//         audi.src=songlistsall[0].audio
-//         audi.controls=true
-//         audi.load()
-        
-//         // audio0.addEventListener("click",function(){
-//         //     audi.play()
-//         // })
-        
-//         div.appendChild(audi)
-
-//         songlist.append(div)
-
-        
-//         songlist.append(div)
-//         index++;
-//     }
-
-//     // if(index==photolist.length){
-//     //     clearInterval(set)
-//     // }
-// }
-// printphoto()
-
-// let set=setInterval(printphoto,200)
-// let audi=document.createElement("audio")
-// audi.src=songlistsall[0].audio
-// // audi.setAttribute("controls", "controls");
-// audi.controls=true
-// audi.load()
-// // audi.play()
-//   document.body.appendChild(audi);
+    if(index==songlistsall.length){
+        clearInterval(set)
+    }
+}
 
 
-// let p1=music0;
-// if(p1.style.display="none"){
-//     p1.style.display="block"
-// }
-// p1.style.display="block"
+let set=setInterval(printphoto,200)
+
+
 function showmusicandvideo(p1,p2){
     const music0=document.getElementById(p1)
     const video0=document.getElementById(p2)
@@ -478,10 +402,10 @@ function donnotshow(p1,p2,p3){
 function show(p1,p2,p3){
     const music0=document.getElementById(p1)
     const video0=document.getElementById(p2)
-    
+    const img=document.getElementById(p3)
     music0.style.display="block"
     video0.style.display="block"
-    img0.style.opacity = "0.5"
+    img.style.opacity = "0.5"
   
 }
 
@@ -492,28 +416,113 @@ function playmusic(idofaudio){
         
         document.getElementById(`audio${idofaudio}`).play()
         checkmusic=true;
+        let color=colorchange()
+        document.getElementById(`box${idofvideo}`).style.boxShadow=`10px 20px 100px ${color}`
+
         
     } else{
         document.getElementById(`audio${idofaudio}`).pause()
         checkmusic=false
+        document.getElementById(`box${idofvideo}`).style.boxShadow=`0px 20px 20px #8592A4`
+
     }    
 }
 
 let checkvideo=false;
-function playmusic(idofvideo){    
+function playvideo(idofvideo){    
      if(checkvideo == false){
         document.getElementById(`video${idofvideo}`).style.display="block"
         document.getElementById(`video${idofvideo}`).play()
-        // document.getElementById(`video${idofvideo}`).style.display="block"
-        document.getElementById(`video${idofvideo}`).style.animation="movelefttoright 4s 1"
+        
+        document.getElementById(`video${idofvideo}`).style.animation="small 4s 1"
         checkvideo=true;
+
+        let color=colorchange()
+        document.getElementById(`video${idofvideo}`).style.boxShadow=`10px 20px 100px ${color}`
+        document.getElementById(`box${idofvideo}`).style.boxShadow=`10px 20px 100px ${color}`
         
     } else{
         document.getElementById(`video${idofvideo}`).style.display="none"
         document.getElementById(`video${idofvideo}`).pause()
         checkvideo=false
+        document.getElementById(`box${idofvideo}`).style.boxShadow=`0px 20px 20px #8592A4`
     }    
 }
-document.getElementById("box1").style.animation="movelefttoright 2s 1"
 
+document.getElementById("mo").style.animation="small 3s 1"
+
+let i=0;
+let j=1;
+function printalonyphoto(){ 
+    
+    document.getElementById("img").src=songlistsall[i].photo;
+    document.getElementById("img10").src=songlistsall[i].video;
+   document.getElementById("img").style.animation="small 2s 1"
+    
+    document.getElementById("img10").style.animation= "small 2s 1";
+
+    i++;
+
+    if(i== songlistsall.length){
+        i=0;
+    }
+}
+
+// setTimeout(printalonyphoto,2000)
+printalonyphoto()
+document.getElementById("backward").style.display="none"
+let v=0;
+function playphotoandvideo(){
+    
+    document.getElementById("backward").style.display="block"
+    
+    v++
+    // if(v==songlistsall.length){
+    //     v=0;
+    // }
+    if(v==songlistsall.length-1){
+        document.getElementById("forward").style.display="none"
+
+    }
+    console.log(v)
+    document.getElementById("img").src=songlistsall[v].photo;
+    document.getElementById("img10").src=songlistsall[v].video;
+   document.getElementById("img").style.animation="small 2s 1"
+    
+    document.getElementById("img10").style.animation= "small 2s 1";
+}
+
+function reversego(){
+    document.getElementById("forward").style.display="block"
+
+    let r=v-1;
+    v=v-1;
+
+    if(r==0){
+        document.getElementById("backward").style.display="none"
+
+    }
+    console.log(r)
+    document.getElementById("img").src=songlistsall[r].photo;
+    document.getElementById("img10").src=songlistsall[r].video;
+   document.getElementById("img").style.animation="small 2s 1"
+    
+    document.getElementById("img10").style.animation= "small 2s 1";
+}
+
+function showphotowithvideo(){
+    
+    if(document.getElementById("mo").style.display=="none"){
+        songlist.style.display="none"
+        document.getElementById("mo").style.display="block"
+        document.getElementById("mo").style.display="grid"
+        document.getElementById("main").style.margin="0px"
+    } else{
+        songlist.style.display="block"
+        songlist.style.display="flex"
+        
+        document.getElementById("mo").style.display="none"
+        document.getElementById("main").style.margin="40px"
+    }
+}
 

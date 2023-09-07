@@ -51,11 +51,11 @@
         
     </style>
 </head>
-<body class="">
+<body class="sm:overflow-hidden">
    <nav class="flex justify-between items-center bg-[#1d235b] text-stone-50 py-3 text-2xl relative   ">
      <!-- logo -->
-        <div class="h-12 ">
-            <img src="./assets/slidlogo.png" alt="" class="h-full w-full">
+        <div class="h-12 w-12 rounded-full">
+            <img src="./assets/photo/music1.webp" alt="" class="h-full w-full rounded-full">
         </div>
 
         <!-- timer -->
@@ -67,7 +67,7 @@
             <span id="second"></span>
         </div>
 
-        <div class="border-2 p-3 rounded-lg transition-all delay-100 ease-in-out cursor-pointer" id="itemadd" onclick="showoption()" >New Add</div>
+        <!-- <div class="border-2 p-3 rounded-lg transition-all delay-100 ease-in-out cursor-pointer" id="itemadd" onclick="showoption()" >New Add</div> -->
 
         <div class="absolute top-20 right-[36rem] flex flex-col border-2  text-sm text-black backdrop-blur-lg rounded-lg hidden border-2 border-rose-400 " id="additemlist">
             <span  class="cursor-pointer m-4" id="additem" onclick="addbusname()">1. Add new item in the list</span>
@@ -98,18 +98,18 @@
 
         <svg xmlns="http://www.w3.org/2000/svg" class="text-4xl fill-slate-900 " onmouseover="hoverpint()"  onmouseout="hoverpint1()" onclick="change()" id="mode" height="1em" viewBox="0 0 384 512"><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
 
-        <h1 class="absolute top-20 right-[20rem] text-black hidden"  id="hover"> </h1>
+        <h1 class="absolute top-20 right-[23rem] text-black hidden"  id="hover"> </h1>
 
-        <i class="fa-solid fa-user mr-14 cursor-pointer" id="profilelogo" onclick="showprofile()" ></i>
+        <i class="fa-solid fa-user  mr-4 lg:mr-14 cursor-pointer" id="profilelogo" onclick="showprofile()" ></i>
 
-        <div class="absolute top-20 right-[2rem] flex flex-col justify-around items-start text-[#95d6e6] bg-gradient-to-r from-slate-600 to-red-500 p-3 rounded-lg border-4 hidden" id="profilesection">
+        <div class="absolute  top-16 right-[2rem] flex flex-col justify-around items-start text-[#95d6e6] bg-gradient-to-r from-slate-600 to-red-500 p-3 rounded-lg border-4 hidden" id="profilesection">
             <span class="cursor-pointer hover:underline hidden" id="profile" onclick="profileinf()">profile</span>
             <span class="cursor-pointer hover:underline " id="login" onclick="showloginfrom()">Login</span>
             <span class="cursor-pointer hover:underline "  id="logout" onclick="signout()">Logout</span>
         </div>
    </nav>
    <!-- login section -->
-   <section class="border-2 border-cyan-500 absolute top-72  left-[40%] bg-slate-500 p-5 rounded-lg hidden"  id="loginsection">
+   <section class="border-2 border-cyan-500 absolute top-76  left-[40%] bg-slate-500 p-5 rounded-lg hidden "  id="loginsection">
         <div class=" flex flex-col  ">
             <label for="username">Enter your name:</label>
             <input type="text" name="" id="username" class="placeholder:pl-2 border-2 text-black border-purple-500 w-80" placeholder="Enter your name">
@@ -129,7 +129,7 @@
 
    </section>
 
-   <div class="border-2 border-cyan-500 absolute top-72  left-[40%] bg-slate-500 p-5 rounded-lg hidden" id="profileinformation">
+   <div class="border-2 border-cyan-500 absolute top-72  left-[40%] bg-slate-500 p-5 rounded-lg hidden " id="profileinformation">
         <div class="flex flex-col justify-center items-center">
             <h1>Update profile Picture</h1>
             <input type="file" name="" id="selectimg" onchange="addimg()">
@@ -154,72 +154,212 @@
 
    </div>
 
-   <div class="flex flex-row justify-center items-center py-3 " id="selectitem">
-        <span class="text-black hover:underline">Only photo</span>
-        <span class="mx-4 text-black hover:underline">photo with audio</span>
-        <span class="text-black hover:underline">photo with video</span>
+   <div class="h-16 w-56 lg:w-96 py-3  rounded-full " id="selectitem">
+        <!-- <span class="text-black hover:underline cursor-pointer">Only photo</span>
+        <span class="mx-4 text-black hover:underline cursor-pointer">photo with audio</span>
+        <span class="text-black hover:underline cursor-pointer" id="photwithvideo" onclick="showphotowithvideo()">photo with video</span> -->
+        <img src="./assets/photo/music2.jpeg" alt="" class="w-10 h-10 rounded-full cursor-pointer " id="photwithvideo" onclick="showphotowithvideo()">
     </div>
 
-    <div class="mt-20">
-        <div class="flex flex-row justify-evenly items-center flex-wrap gap-8" id="songlist">
+    <div class="mt-10 " id="main">
+        <div class="flex flex-row justify-evenly items-center flex-wrap gap-8 " id="songlist">
 
 
-            <div class="w-[15rem] h-[15rem]  shadow-lg shadow-slate-500 cursor-pointer flex flex-col justify-center items-center relative " id="box0" 
-            onmouseover="show('music0','videobuttom0')" onmouseout="donnotshow('music0','videobuttom0','img0')" onclick="showmusicandvideo('music0','video0')" >
-                <img src="./assets/photo/Chaleya.jpg" alt="" class="w-full h-full rounded-lg " id="img0">
+            <div class="w-[15rem] h-[15rem]  shadow-lg    shadow-slate-500 cursor-pointer flex flex-col justify-center items-center relative " id="box0" 
+            onmouseover="show('music0','videobuttom0','img0')" onmouseout="donnotshow('music0','videobuttom0','img0')" onclick="showmusicandvideo('music0','video0')" >
+                <img src="" alt="" class="w-full h-full rounded-lg " id="img0">
 
 
-                <audio controls src="./assets/audio/diltopagalhe.mp3" class="bg-slate-800 absolute "  hidden id="audio0"></audio>
+                <audio controls src="" class="bg-slate-800 absolute "  hidden id="audio0"></audio>
 
-                <video src="./assets/video/chaleya.mp4" controls id="video0" class=" hidden absolute z-20 eas"></video>
+                <video src="" controls id="video0" class=" hidden absolute z-20 eas"></video>
 
                 <button class="absolute bottom-2 left-3 hidden  transition-all ease-in-out delay-150 " id="music0"  onclick="playmusic('0')">
                     <svg xmlns="http://www.w3.org/2000/svg"  class="fill-green-600"  height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
                 </button>
 
-                <button class="absolute bottom-2 right-3 rounded-full px-3 py-2   hidden " id="videobuttom0" onclick="playmusic('0')" >
+                <button class="absolute bottom-2 right-3 rounded-full px-3 py-2   hidden " id="videobuttom0" onclick="playvideo('0')" >
                     <svg xmlns="http://www.w3.org/2000/svg" class="fill-green-700"  height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
                 </button>
             </div>
 
-            
             <div class="w-[15rem] h-[15rem]  shadow-lg shadow-slate-500 cursor-pointer flex flex-col justify-center items-center relative " id="box1" 
-            onmouseover="show('music1','videobuttom1')" onmouseout="donnotshow('music1','videobuttom1','img1')" onclick="showmusicandvideo('music1','video1')" >
-                <img src="./assets/photo/Chaleya.jpg" alt="" class="w-full h-full rounded-lg " id="img1">
+            onmouseover="show('music1','videobuttom1','img1')" onmouseout="donnotshow('music1','videobuttom1','img1')" onclick="showmusicandvideo('music1','videobuttom1')" >
+                <img src="" alt="" class="w-full h-full rounded-lg " id="img1">
 
 
-                <audio controls src="./assets/audio/diltopagalhe.mp3" class="bg-slate-800 absolute "  hidden id="audio0"></audio>
+                <audio controls src="" class="bg-slate-800 absolute "  hidden id="audio1"></audio>
 
-                <video src="./assets/video/chaleya.mp4" controls id="video0" class=" hidden absolute z-20 eas"></video>
+                <video src="" controls id="video1" class=" hidden absolute z-20 eas"></video>
 
                 <button class="absolute bottom-2 left-3 hidden  transition-all ease-in-out delay-150 " id="music1"  onclick="playmusic('1')">
                     <svg xmlns="http://www.w3.org/2000/svg"  class="fill-green-600"  height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
                 </button>
 
-                <button class="absolute bottom-2 right-3 rounded-full px-3 py-2   hidden " id="videobuttom1" onclick="playmusic('1')" >
+                <button class="absolute bottom-2 right-3 rounded-full px-3 py-2   hidden " id="videobuttom1" onclick="playvideo('1')" >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-green-700"  height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+                </button>
+            </div>
+
+            <div class="w-[15rem] h-[15rem]  shadow-lg shadow-slate-500 cursor-pointer flex flex-col justify-center items-center relative " id="box2" 
+            onmouseover="show('music2','videobuttom2','img2')" onmouseout="donnotshow('music2','videobuttom2','img2')" onclick="showmusicandvideo('music2','videobuttom2')" >
+                <img src="" alt="" class="w-full h-full rounded-lg " id="img2">
+
+
+                <audio controls src="" class="bg-slate-800 absolute "  hidden id="audio2"></audio>
+
+                <video src="" controls id="video2" class=" hidden absolute z-20 eas"></video>
+
+                <button class="absolute bottom-2 left-3 hidden  transition-all ease-in-out delay-150 " id="music2"  onclick="playmusic('2')">
+                    <svg xmlns="http://www.w3.org/2000/svg"  class="fill-green-600"  height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+                </button>
+
+                <button class="absolute bottom-2 right-3 rounded-full px-3 py-2   hidden " id="videobuttom2" onclick="playvideo('2')" >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-green-700"  height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+                </button>
+            </div>
+
+            <div class="w-[15rem] h-[15rem]  shadow-lg shadow-slate-500 cursor-pointer flex flex-col justify-center items-center relative " id="box3" 
+            onmouseover="show('music3','videobuttom3','img3')" onmouseout="donnotshow('music3','videobuttom3','img3')" onclick="showmusicandvideo('music3','videobuttom3')" >
+                <img src="" alt="" class="w-full h-full rounded-lg " id="img3">
+
+
+                <audio controls src="" class="bg-slate-800 absolute "  hidden id="audio3"></audio>
+
+                <video src="" controls id="video3" class=" hidden absolute z-20 eas"></video>
+
+                <button class="absolute bottom-2 left-3 hidden  transition-all ease-in-out delay-150 " id="music3"  onclick="playmusic('3')">
+                    <svg xmlns="http://www.w3.org/2000/svg"  class="fill-green-600"  height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+                </button>
+
+                <button class="absolute bottom-2 right-3 rounded-full px-3 py-2   hidden " id="videobuttom3" onclick="playvideo('3')" >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-green-700"  height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+                </button>
+            </div>
+
+            <div class="w-[15rem] h-[15rem]  shadow-lg shadow-slate-500 cursor-pointer flex flex-col justify-center items-center relative " id="box4" 
+            onmouseover="show('music4','videobuttom4','img4')" onmouseout="donnotshow('music4','videobuttom4','img4')" onclick="showmusicandvideo('music4','videobuttom4')" >
+                <img src="" alt="" class="w-full h-full rounded-lg " id="img4">
+
+
+                <audio controls src="" class="bg-slate-800 absolute "  hidden id="audio4"></audio>
+
+                <video src="" controls id="video4" class=" hidden absolute z-20 eas"></video>
+
+                <button class="absolute bottom-2 left-3 hidden  transition-all ease-in-out delay-150 " id="music4"  onclick="playmusic('4')">
+                    <svg xmlns="http://www.w3.org/2000/svg"  class="fill-green-600"  height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+                </button>
+
+                <button class="absolute bottom-2 right-3 rounded-full px-3 py-2   hidden " id="videobuttom4" onclick="playvideo('4')" >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-green-700"  height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+                </button>
+            </div>
+
+            <div class="w-[15rem] h-[15rem]  shadow-lg shadow-slate-500 cursor-pointer flex flex-col justify-center items-center relative " id="box5" 
+            onmouseover="show('music5','videobuttom5','img5')" onmouseout="donnotshow('music5','videobuttom5','img5')" onclick="showmusicandvideo('music5','videobuttom5')" >
+                <img src="" alt="" class="w-full h-full rounded-lg " id="img5">
+
+
+                <audio controls src="" class="bg-slate-800 absolute "  hidden id="audio5"></audio>
+
+                <video src="" controls id="video5" class=" hidden absolute z-20 eas"></video>
+
+                <button class="absolute bottom-2 left-3 hidden  transition-all ease-in-out delay-150 " id="music5"  onclick="playmusic('5')">
+                    <svg xmlns="http://www.w3.org/2000/svg"  class="fill-green-600"  height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+                </button>
+
+                <button class="absolute bottom-2 right-3 rounded-full px-3 py-2   hidden " id="videobuttom5" onclick="playvideo('5')" >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-green-700"  height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+                </button>
+            </div>
+
+            <div class="w-[15rem] h-[15rem]  shadow-lg shadow-slate-500 cursor-pointer flex flex-col justify-center items-center relative " id="box6" 
+            onmouseover="show('music6','videobuttom6','img6')" onmouseout="donnotshow('music6','videobuttom6','img6')" onclick="showmusicandvideo('music6','videobuttom6')" >
+                <img src="" alt="" class="w-full h-full rounded-lg " id="img6">
+
+
+                <audio controls src="" class="bg-slate-800 absolute "  hidden id="audio6"></audio>
+
+                <video src="" controls id="video6" class=" hidden absolute z-20 eas"></video>
+
+                <button class="absolute bottom-2 left-3 hidden  transition-all ease-in-out delay-150 " id="music6"  onclick="playmusic('6')">
+                    <svg xmlns="http://www.w3.org/2000/svg"  class="fill-green-600"  height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+                </button>
+
+                <button class="absolute bottom-2 right-3 rounded-full px-3 py-2   hidden " id="videobuttom6" onclick="playvideo('6')" >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-green-700"  height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+                </button>
+            </div>
+
+            <div class="w-[15rem] h-[15rem]  shadow-lg shadow-slate-500 cursor-pointer flex flex-col justify-center items-center relative " id="box7" 
+            onmouseover="show('music7','videobuttom7','img7')" onmouseout="donnotshow('music7','videobuttom7','img7')" onclick="showmusicandvideo('music7','videobuttom7')" >
+                <img src="" alt="" class="w-full h-full rounded-lg " id="img7">
+
+
+                <audio controls src="" class="bg-slate-800 absolute "  hidden id="audio7"></audio>
+
+                <video src="" controls id="video7" class=" hidden absolute z-20 eas"></video>
+
+                <button class="absolute bottom-2 left-3 hidden  transition-all ease-in-out delay-150 " id="music7"  onclick="playmusic('7')">
+                    <svg xmlns="http://www.w3.org/2000/svg"  class="fill-green-600"  height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+                </button>
+
+                <button class="absolute bottom-2 right-3 rounded-full px-3 py-2   hidden " id="videobuttom7" onclick="playvideo('7')" >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-green-700"  height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+                </button>
+            </div>
+
+            <div class="w-[15rem] h-[15rem]  shadow-lg shadow-slate-500 cursor-pointer flex flex-col justify-center items-center relative " id="box8" 
+            onmouseover="show('music8','videobuttom8','img8')" onmouseout="donnotshow('music8','videobuttom8','img8')" onclick="showmusicandvideo('music8','videobuttom8')" >
+                <img src="" alt="" class="w-full h-full rounded-lg " id="img8">
+
+
+                <audio controls src="" class="bg-slate-800 absolute "  hidden id="audio8"></audio>
+
+                <video src="" controls id="video8" class=" hidden absolute z-20 eas"></video>
+
+                <button class="absolute bottom-2 left-3 hidden  transition-all ease-in-out delay-150 " id="music8"  onclick="playmusic('8')">
+                    <svg xmlns="http://www.w3.org/2000/svg"  class="fill-green-600"  height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+                </button>
+
+                <button class="absolute bottom-2 right-3 rounded-full px-3 py-2   hidden " id="videobuttom8" onclick="playvideo('8')" >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-green-700"  height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+                </button>
+            </div>
+
+            <div class="w-[15rem] h-[15rem]  shadow-lg shadow-slate-500 cursor-pointer flex flex-col justify-center items-center relative " id="box9" 
+            onmouseover="show('music9','videobuttom9','img9')" onmouseout="donnotshow('music9','videobuttom9','img9')" onclick="showmusicandvideo('music9','videobuttom9')" >
+                <img src="" alt="" class="w-full h-full rounded-lg " id="img9">
+
+
+                <audio controls src="" class="bg-slate-800 absolute "  hidden id="audio9"></audio>
+
+                <video src="" controls id="video9" class=" hidden absolute z-20 eas"></video>
+
+                <button class="absolute bottom-2 left-3 hidden  transition-all ease-in-out delay-150 " id="music9"  onclick="playmusic('9')">
+                    <svg xmlns="http://www.w3.org/2000/svg"  class="fill-green-600"  height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+                </button>
+
+                <button class="absolute bottom-2 right-3 rounded-full px-3 py-2   hidden " id="videobuttom9" onclick="playvideo('9')" >
                     <svg xmlns="http://www.w3.org/2000/svg" class="fill-green-700"  height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
                 </button>
             </div>
 
             
-            <div class="w-[15rem] h-[15rem]  shadow-lg shadow-slate-500 cursor-pointer flex flex-col justify-center items-center relative " id="box0" 
-            onmouseover="show('music0','videobuttom0')" onmouseout="donnotshow('music0','videobuttom0','img0')" onclick="showmusicandvideo('music0','video0')" >
-                <img src="./assets/photo/Chaleya.jpg" alt="" class="w-full h-full rounded-lg " id="img0">
 
+        </div>
 
-                <audio controls src="./assets/audio/diltopagalhe.mp3" class="bg-slate-800 absolute "  hidden id="audio0"></audio>
+        <div class="grid lg:grid-cols-2 hidden grid-rows-2" id="mo">
+            <div class="bg-red-600 w-full h-full relative" id="onlyphoto">
+                <img src="" alt="" class="w-full h-full relative" id="img"> 
+                <i class="fa-solid fa-chevron-left absolute left-5 top-[50%] scale-150 bg-slate-400 rounded-full px-3 py-[0.50rem] opacity-40 cursor-pointer hidden" id="backward" onclick="reversego()"></i>
 
-                <video src="./assets/video/chaleya.mp4" controls id="video0" class=" hidden absolute z-20 eas"></video>
-
-                <button class="absolute bottom-2 left-3 hidden  transition-all ease-in-out delay-150 " id="music0"  onclick="playmusic('0')">
-                    <svg xmlns="http://www.w3.org/2000/svg"  class="fill-green-600"  height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
-                </button>
-
-                <button class="absolute bottom-2 right-3 rounded-full px-3 py-2   hidden " id="videobuttom0" onclick="playmusic('0')" >
-                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-green-700"  height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
-                </button>
             </div>
+            <div class="bg-slate-800 w-full h-full relative" id="onlyphoto1">
+                <video src="" class="w-full h-full relative" id="img10" controls></video>
+                <i class="fa-solid fa-chevron-right absolute right-5 top-[50%] scale-150 bg-slate-400 rounded-full px-3 py-[0.50rem] opacity-40 cursor-pointer" id="forward" onclick="playphotoandvideo()"></i>
 
+            </div>
         </div>
            
     </div>
